@@ -20,6 +20,7 @@ if __name__ == '__main__':
 
 # Test for FastAPI Integration
 from fastapi.testclient import TestClient
+import httpx
 from src.api import app
 
 def test_read_root():
