@@ -12,20 +12,25 @@
 
 This is a boilerplate TEMPLATE for Python projects. It's a starting point that (hopefully) helps cut down on the repetitive project setup tasks and help keep project file structures consistent.
 
-Included are...
- - A boilerplate `main.py` script with logging, cli arguments, and a few other things to help you get started
+Included are...\n - A boilerplate `main.py` script with logging, cli arguments, and a few other things to help you get started
  - `.env` and `.config` files to help keep secrets secret and simplify configuring your script to run by other users
  - An `environment.yml` file for configuring and setting up environments for your tool
  - Initial test framework and Travis CI integration already setup and ready to rock and roll
- - VSCode `.vscode/` dir with configs for your project to utilize `unittest` and speed up 
+ - VSCode `.vscode/` dir with configs for your project to utilize `unittest` and speed up
+ - A basic FastAPI application structure with health check endpoint
 
 ### Usage
 > *This should be a quick/small instruction set for how to run the script, with more a detailed instructions below*
 1. Create a project from this template and alter as you need.
 2. Install dependancies (see _Setup the environment_ below)
-2. Run the project via its' entry-point, `main.py`, passing in any required arguments
+3. Run the project via its' entry-point, `main.py`, passing in any required arguments
 ```bash
 python main.py <args>
+```
+
+Or run the FastAPI server:
+```bash
+python src/api.py
 ```
 
 ## Details
@@ -61,17 +66,35 @@ pip install -r requirements.txt
 - Rename `.env.TEMPLATE` to `.env` and update it with any required secrets
 
 ### 3. Run
-5. Activate the VENV in your terminal and test the project
+Activate the VENV in your terminal and test the project:
 ```bash
 conda activate project_name
 python main.py <arguments>
 ```
 
+### 4. Run the FastAPI Server
+To run the FastAPI development server with auto-reload:
+```bash
+cd src
+python api.py
+```
+
+Or use uvicorn directly:
+```bash
+cd src
+uvicorn api:app --reload
+```
+
+The API will be available at `http://localhost:8000`
+- API documentation (Swagger UI): `http://localhost:8000/docs`
+- Alternative documentation (ReDoc): `http://localhost:8000/redoc`
+- Health check endpoint: `http://localhost:8000/health`
+
 ## Development Environment
 > *List any requirements or additional setup as needed to develop/contribute to this project.*
 
 ### Configuring the Environment
-> *List any development-specific environment settings or steps here.
+> *List any development-specific environment settings or steps here.*
 
 ### Running Tests
 
