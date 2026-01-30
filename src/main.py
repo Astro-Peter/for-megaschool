@@ -60,3 +60,15 @@ def testFunction():
 if __name__ == '__main__':
     main()  
     log.info(f"Script took {time.perf_counter()-start_time:0.4f} seconds to execute.")  # log performance data
+
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/")
+async def read_root():
+    return {"message": "Welcome to the FastAPI application!"}
+
+@app.post("/items/")
+async def create_item(item: dict):
+    return {"item": item}
