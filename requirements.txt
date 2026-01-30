@@ -1,3 +1,7 @@
 rich
 python-dotenv
 fastapi
+
+httpx
+
+httpx
