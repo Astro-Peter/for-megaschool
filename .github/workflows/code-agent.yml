@@ -29,7 +29,6 @@ jobs:
     secrets:
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
       LLM_API_TOKEN: ${{ secrets.LLM_API_TOKEN }}
-      LLM_MODEL: ${{ vars.STRUCTURED_OUTPUT_MODEL || 'gpt-4o-mini' }}
 
   # Code automatically after plan
   code_after_plan:
