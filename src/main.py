@@ -60,3 +60,7 @@ def testFunction():
 if __name__ == '__main__':
     main()  
     log.info(f"Script took {time.perf_counter()-start_time:0.4f} seconds to execute.")  # log performance data
+import uvicorn
+
+if __name__ == '__main__':
+    uvicorn.run("api:app", host="0.0.0.0", port=8000)
