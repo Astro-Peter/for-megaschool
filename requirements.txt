@@ -1,2 +1,5 @@
 rich
 python-dotenv
+httpx>=0.23.0
+fastapi
+uvicorn
