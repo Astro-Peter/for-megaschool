@@ -102,3 +102,26 @@ In VSCode, use the Testing pane.
   - The first word (lowercase) should be a verb that describes the action it takes. (e.g. `parseData()`)
 - Define constants near the top of the file, below imports/setup, with `UPPER_CASE_LIKE_THIS`
 - *Import order, etc*
+
+## API Endpoints
+
+### Welcome Endpoint
+- **`GET /`**: Returns a welcome message.
+
+### Item Endpoint
+- **`GET /items/{item_id}`**: Retrieve an item by its ID with an optional query parameter.
+
+### Running the API
+To run the FastAPI application, use the following command:
+
+```bash
+uvicorn src.main:app --reload
+```
+
+### Running Tests
+
+To run the tests, use the following command:
+
+```bash
+pytest test/test_api.py
+```
