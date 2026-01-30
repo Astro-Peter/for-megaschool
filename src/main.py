@@ -60,3 +60,10 @@ def testFunction():
 if __name__ == '__main__':
     main()  
     log.info(f"Script took {time.perf_counter()-start_time:0.4f} seconds to execute.")  # log performance data
+
+from fastapi import FastAPI
+from src.middleware import log_request
+
+app = FastAPI()
+
+app.middleware('http')(log_request)
