@@ -60,3 +60,20 @@ def testFunction():
 if __name__ == '__main__':
     main()  
     log.info(f"Script took {time.perf_counter()-start_time:0.4f} seconds to execute.")  # log performance data
+
+# Import FastAPI
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/")
+async def read_root():
+    return {"message": "Welcome to the API"}
+
+
+from modules.api import router
+
+app.include_router(router)
+
+from modules.middleware import ErrorHandlingMiddleware
+app.add_middleware(ErrorHandlingMiddleware)
