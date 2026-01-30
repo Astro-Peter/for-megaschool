@@ -31,7 +31,13 @@ parser.add_argument('argname', help='<describe the arg here>')   # define argume
 
 ###################################################### EXECUTION #######################################################
 
-def main():
+def from fastapi import FastAPI
+import uvicorn
+
+if __name__ == '__main__':
+    # run FastAPI application
+    uvicorn.run("api:app", host="0.0.0.0", port=8000, log_level="info")
+    log.info(f"Script took {time.perf_counter()-start_time:0.4f} seconds to execute."):
     """Add functionality for your script here."""
     
     args = parser.parse_args()  # pull in command-line arguments
@@ -58,5 +64,11 @@ def testFunction():
 ##################################################### ENTRY POINT ######################################################
 
 if __name__ == '__main__':
-    main()  
+    from fastapi import FastAPI
+import uvicorn
+
+if __name__ == '__main__':
+    # run FastAPI application
+    uvicorn.run("api:app", host="0.0.0.0", port=8000, log_level="info")
+    log.info(f"Script took {time.perf_counter()-start_time:0.4f} seconds to execute.")  
     log.info(f"Script took {time.perf_counter()-start_time:0.4f} seconds to execute.")  # log performance data
