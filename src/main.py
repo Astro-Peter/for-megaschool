@@ -60,3 +60,16 @@ def testFunction():
 if __name__ == '__main__':
     main()  
     log.info(f"Script took {time.perf_counter()-start_time:0.4f} seconds to execute.")  # log performance data
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/")
+async def root():
+    return {"message": "Hello World"}
+
+from src.routes.item_routes import router as item_router
+
+app.include_router(item_router)
+
+from src.database.database import get_db_connection
