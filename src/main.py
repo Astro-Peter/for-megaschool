@@ -7,12 +7,16 @@ import time
 import argparse
 from rich import print  # print to the console with rich.print() instead of print()
 from dotenv import load_dotenv, dotenv_values
+from fastapi import FastAPI
 
 # 🚨 OPSEC ALERT 🚨 -- keep credentials SECURE in .env files!
 load_dotenv()  # pull in secrets and settings
 cfg = { **dotenv_values(".config") }  # pull in config settings
 
 from modules.logger import Log  # init a logger (customize in logger.py)
+
+# Create FastAPI instance
+app = FastAPI()
 
 ######################################################## SETUP #########################################################
 
@@ -26,7 +30,7 @@ start_time = time.perf_counter()  # monitor script performance
 
 # setup any command-line arguments we need
 parser = argparse.ArgumentParser(description='<insert a brief tool/script description>')
-parser.add_argument('argname', help='<describe the arg here>')   # define arguments like this
+parser.add_argument('argname', help='<describe the arg here>')  # define arguments like this
 
 
 ###################################################### EXECUTION #######################################################
@@ -47,8 +51,13 @@ def main():
     log.debug(f'You passed in this argument: [bold italic white]{args.argname}[/bold italic white]') 
     
     # log.inspect() is also useful for debugging
-    log.hbar(f'Inspect Object (example)')
+    log.hbar('Inspect Object (example)')
     log.inspect(cfg)
+
+
+@app.get("/")
+async def read_root():
+    return {"message": "Welcome to the FastAPI application!"}
 
 
 def testFunction():
@@ -60,3 +69,7 @@ def testFunction():
 if __name__ == '__main__':
     main()  
     log.info(f"Script took {time.perf_counter()-start_time:0.4f} seconds to execute.")  # log performance data
+# Include the sample routes
+from routes.sample_routes import router
+
+app.include_router(router)
