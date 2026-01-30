@@ -102,3 +102,39 @@ In VSCode, use the Testing pane.
   - The first word (lowercase) should be a verb that describes the action it takes. (e.g. `parseData()`)
 - Define constants near the top of the file, below imports/setup, with `UPPER_CASE_LIKE_THIS`
 - *Import order, etc*
+
+# FastAPI API Documentation
+
+## Endpoints
+
+### Create User
+- **Endpoint**: `/users/`
+- **Method**: `POST`
+- **Request Body**:
+  ```json
+  {
+    "id": 1,
+    "name": "John Doe",
+    "email": "johndoe@example.com"
+  }
+  ```
+- **Response**:
+  ```json
+  {
+    "id": 1,
+    "name": "John Doe",
+    "email": "johndoe@example.com"
+  }
+  ```
+
+### Get User by ID
+- **Endpoint**: `/users/{user_id}`
+- **Method**: `GET`
+- **Response**:
+  ```json
+  {
+    "id": 1,
+    "name": "Sample User",
+    "email": "sample@example.com"
+  }
+  ```

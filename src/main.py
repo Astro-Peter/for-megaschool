@@ -7,6 +7,7 @@ import time
 import argparse
 from rich import print  # print to the console with rich.print() instead of print()
 from dotenv import load_dotenv, dotenv_values
+from fastapi import FastAPI
 
 # 🚨 OPSEC ALERT 🚨 -- keep credentials SECURE in .env files!
 load_dotenv()  # pull in secrets and settings
@@ -23,6 +24,9 @@ GRAVITY_IMPERIAL = 32.2  # ft/s^2
 # CONFIGURATION
 log = Log()
 start_time = time.perf_counter()  # monitor script performance
+
+# FastAPI app initialization
+app = FastAPI()
 
 # setup any command-line arguments we need
 parser = argparse.ArgumentParser(description='<insert a brief tool/script description>')
