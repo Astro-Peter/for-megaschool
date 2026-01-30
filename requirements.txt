@@ -1,2 +1,4 @@
-rich
-python-dotenv
+fastapi
+uvicorn
+
+tests
