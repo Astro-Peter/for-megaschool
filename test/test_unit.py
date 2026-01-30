@@ -4,7 +4,7 @@ srcdir = '../src'
 sys.path.insert(0, os.path.abspath(os.path.join(testdir, srcdir)))
 
 import unittest
-from src.main import testFunction
+from src.main import test_function
 
 
 class TestSum(unittest.TestCase):
@@ -12,7 +12,7 @@ class TestSum(unittest.TestCase):
         """
         Test that it can sum a list of integers
         """
-        self.assertTrue(testFunction())
+        self.assertTrue(test_function())
 
 
 if __name__ == '__main__':

@@ -12,6 +12,9 @@ async def read_root():
 
 
 @app.post("/items/")
+from src.models import Item
+
+
 async def create_item(item: Item):
     return item
 

@@ -1,5 +1,5 @@
 from starlette.middleware.base import BaseHTTPMiddleware
-from starlette.middleware import ErrorMiddleware
+from starlette.middleware.errors import ErrorMiddleware
 from starlette.responses import PlainTextResponse
 from starlette.requests import Request
 
