@@ -60,3 +60,6 @@ def testFunction():
 if __name__ == '__main__':
     main()  
     log.info(f"Script took {time.perf_counter()-start_time:0.4f} seconds to execute.")  # log performance data
+from api import app
+
+# To run the server use: uvicorn main:app --reload
