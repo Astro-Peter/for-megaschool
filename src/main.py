@@ -32,13 +32,14 @@ parser.add_argument('argname', help='<describe the arg here>')   # define argume
 ###################################################### EXECUTION #######################################################
 
 def main():
-    """Add functionality for your script here."""
+    """Add functionality for your CLI script here."""
     
     args = parser.parse_args()  # pull in command-line arguments
 
     # report the results
     log.hbar('Results')
-    print('[bold magenta]Hello, world.')  # try to avoid print(), but it works with formatting too if required
+    print('[bold magenta]Hello, world CLI application.')  # try to avoid print(), but it works with formatting too if required
+    print('[bold blue]To run the API version, use: python src/run_api.py[/bold blue]')
     
     if testFunction():  # let's test out calling a function
         log.success('Function was called!')

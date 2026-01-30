@@ -1,5 +1,13 @@
 name: python-project
 dependencies:
   - python=3.9
+  - pip
   - rich
   - python-dotenv
+  - pip:
+    - fastapi
+    - uvicorn[standard]
+    - pydantic>=2.0
+    - pytest
+    - httpx
+    - fastapi[all]

@@ -14,19 +14,28 @@ This is a boilerplate TEMPLATE for Python projects. It's a starting point that (
 
 Included are...
  - A boilerplate `main.py` script with logging, cli arguments, and a few other things to help you get started
- - `.env` and `.config` files to help keep secrets secret and simplify configuring your script to run by other users
+ - `.env` and `.config` files to help keep secrets secret and simplify configuring your script to run by other users  
  - An `environment.yml` file for configuring and setting up environments for your tool
  - Initial test framework and Travis CI integration already setup and ready to rock and roll
  - VSCode `.vscode/` dir with configs for your project to utilize `unittest` and speed up 
 
 ### Usage
-> *This should be a quick/small instruction set for how to run the script, with more a detailed instructions below*
-1. Create a project from this template and alter as you need.
-2. Install dependancies (see _Setup the environment_ below)
-2. Run the project via its' entry-point, `main.py`, passing in any required arguments
-```bash
-python main.py <args>
-```
+> *This should be a quick/small instruction set for how to run the script, with more detailed instructions below*
+
+This project offers two ways to interact:
+
+1. **Command Line Interface**: Create a project from this template and alter as you need.
+   - Install dependencies (see _Setup the environment_ below)
+   - Run the project via its' entry-point, `main.py`, passing in any required arguments
+   ```bash
+   python src/main.py <args>
+   ```
+
+2. **REST API**: The project includes a FastAPI-based web API for programmatic access.
+   ```bash
+   python src/run_api.py --port 8000 --host 0.0.0.0
+   ```
+   The API will be available at `http://localhost:8000`, with automatic documentation at `http://localhost:8000/docs`
 
 ## Details
 - **Project Owner:** *name*
