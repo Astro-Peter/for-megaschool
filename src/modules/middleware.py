@@ -8,3 +8,5 @@ class ErrorHandlingMiddleware(BaseHTTPMiddleware):
             return response
         except Exception as e:
             return JSONResponse(content={"detail": str(e)}, status_code=500)
+
+
