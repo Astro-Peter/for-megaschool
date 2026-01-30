@@ -12,21 +12,12 @@
 
 This is a boilerplate TEMPLATE for Python projects. It's a starting point that (hopefully) helps cut down on the repetitive project setup tasks and help keep project file structures consistent.
 
-Included are...
- - A boilerplate `main.py` script with logging, cli arguments, and a few other things to help you get started
+Included are...\n - A boilerplate `main.py` script with logging, cli arguments, and a few other things to help you get started
  - `.env` and `.config` files to help keep secrets secret and simplify configuring your script to run by other users
  - An `environment.yml` file for configuring and setting up environments for your tool
  - Initial test framework and Travis CI integration already setup and ready to rock and roll
- - VSCode `.vscode/` dir with configs for your project to utilize `unittest` and speed up 
-
-### Usage
-> *This should be a quick/small instruction set for how to run the script, with more a detailed instructions below*
-1. Create a project from this template and alter as you need.
-2. Install dependancies (see _Setup the environment_ below)
-2. Run the project via its' entry-point, `main.py`, passing in any required arguments
-```bash
-python main.py <args>
-```
+ - VSCode `.vscode/` dir with configs for your project to utilize `unittest` and speed up
+ - A FastAPI-based REST API with organized project structure, configuration management, and health check endpoint
 
 ## Details
 - **Project Owner:** *name*
@@ -39,7 +30,7 @@ python main.py <args>
 ## Getting Started
 > *Describe how to quickly get started running your project.*
 
-Clone this repository to your local machine, create a VENV and install the project's requirements, then run `main.py`.
+Clone this repository to your local machine, create a VENV and install the project's requirements.
 
 ### 1. Setup the environment
 #### Conda / Mamba
@@ -60,18 +51,30 @@ pip install -r requirements.txt
 - Rename `.config.TEMPLATE` to `.config`. Edit values to work with your local machine.
 - Rename `.env.TEMPLATE` to `.env` and update it with any required secrets
 
-### 3. Run
-5. Activate the VENV in your terminal and test the project
+### 3. Run the FastAPI Development Server
+The project includes a FastAPI-based REST API. To run it:
+
 ```bash
-conda activate project_name
-python main.py <arguments>
+cd src
+uvicorn api:app --reload
+```
+
+- Access the API at `http://localhost:8000`
+- View interactive API documentation at `http://localhost:8000/docs`
+- Check API health at `http://localhost:8000/api/health`
+
+### 4. Run the CLI Script
+Alternatively, you can run the CLI entry point:
+
+```bash
+python src/main.py <arguments>
 ```
 
 ## Development Environment
 > *List any requirements or additional setup as needed to develop/contribute to this project.*
 
 ### Configuring the Environment
-> *List any development-specific environment settings or steps here.
+> *List any development-specific environment settings or steps here.*
 
 ### Running Tests
 
