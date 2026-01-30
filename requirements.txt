@@ -1,2 +1,6 @@
 rich
 python-dotenv
+
+# FastAPI and related packages
+fastapi>=0.104.0
+uvicorn[standard]>=0.24.0
