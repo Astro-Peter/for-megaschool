@@ -67,6 +67,16 @@ conda activate project_name
 python main.py <arguments>
 ```
 
+To run the FastAPI server:
+```bash
+python -m src.run_api --host 127.0.0.1 --port 8000 --reload
+```
+
+Or with uvicorn directly:
+```bash
+uvicorn src.modules.api:app --host 127.0.0.1 --port 8000 --reload
+```
+
 ## Development Environment
 > *List any requirements or additional setup as needed to develop/contribute to this project.*
 

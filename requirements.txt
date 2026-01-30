@@ -1,2 +1,8 @@
 rich
 python-dotenv
+fastapi>=0.68.0
+uvicorn[standard]>=0.15.0
+
+# Testing dependencies
+pytest>=6.0
+httpx
