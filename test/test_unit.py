@@ -1,19 +1,24 @@
-import sys, os
-testdir = os.path.dirname(__file__)
-srcdir = '../src'
-sys.path.insert(0, os.path.abspath(os.path.join(testdir, srcdir)))
+import pytest
+from fastapi.testclient import TestClient
+from src.main_api import app
 
-import unittest
-from src.main import testFunction
+client = TestClient(app)
 
-
-class TestSum(unittest.TestCase):
-    def test_testFunction(self):
-        """
-        Test that it can sum a list of integers
-        """
-        self.assertTrue(testFunction())
+def test_read_root():
+    response = client.get("/")
+    assert response.status_code == 200
+    assert response.json() == {"message": "Hello World"}
 
 
-if __name__ == '__main__':
-    unittest.main()
+def test_create_item():
+    item_data = {"name": "item1", "description": "A test item", "price": 10.5, "tax": 0.5}
+    response = client.post("/items/", json=item_data)
+    assert response.status_code == 200
+    assert response.json() == item_data
+
+
+def test_create_item_with_tax():
+    item_data = {"name": "item2", "description": "Another test item", "price": 20.5, "tax": 0.5}
+    response = client.post("/items/", json=item_data)
+    assert response.status_code == 200
+    assert response.json() == item_data

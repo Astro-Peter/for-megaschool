@@ -1,2 +1,6 @@
 rich
 python-dotenv
+fastapi
+uvicorn
+httpx
+pytest>=6.0
