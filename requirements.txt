@@ -2,7 +2,6 @@ rich
 python-dotenv
 fastapi
 uvicorn
-
 pytest>=6.0
-
 httpx
+starlette==0.19.1

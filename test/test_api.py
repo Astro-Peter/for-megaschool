@@ -11,14 +11,14 @@ def test_read_root():
     assert response.json() == {"Hello": "World"}
 
 
-def test_create_item():
+def test_create_item_1():
     response = client.post("/items/", json={"name": "Item1", "price": 10.5})
     assert response.status_code == 200
     assert response.json() == {"name": "Item1", "price": 10.5, "is_available": true}
 
 
 
-def test_create_item():
+def test_create_item_1():
     response = client.post('/items/', json={'name': 'Item1', 'price': 10.5})
     assert response.status_code == 200
     assert response.json() == {'name': 'Item1', 'price': 10.5, 'is_available': True}
