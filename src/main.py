@@ -58,5 +58,13 @@ def testFunction():
 ##################################################### ENTRY POINT ######################################################
 
 if __name__ == '__main__':
+    log.info('Starting FastAPI server...')
     main()  
     log.info(f"Script took {time.perf_counter()-start_time:0.4f} seconds to execute.")  # log performance data
+
+import uvicorn
+from api import app
+
+if __name__ == '__main__':
+    log.info('Starting FastAPI server...')
+    uvicorn.run(app, host='0.0.0.0', port=8000)
