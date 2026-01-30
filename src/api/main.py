@@ -36,3 +36,7 @@ app.include_router(items.router)
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000)
+from .routes import dogs
+
+# Include the dog routes
+app.include_router(dogs.router)
