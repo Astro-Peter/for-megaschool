@@ -102,3 +102,21 @@ In VSCode, use the Testing pane.
   - The first word (lowercase) should be a verb that describes the action it takes. (e.g. `parseData()`)
 - Define constants near the top of the file, below imports/setup, with `UPPER_CASE_LIKE_THIS`
 - *Import order, etc*
+# FastAPI Project
+
+This repository contains a basic API structure built using FastAPI.
+
+## Setup Instructions
+
+1. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+2. Run the application:
+   ```bash
+   uvicorn src.main:app --reload
+   ```
+
+## Sample Endpoint
+
+- **GET /**: Returns a JSON response `{ "Hello": "World" }`
