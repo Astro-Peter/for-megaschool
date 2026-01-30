@@ -13,6 +13,23 @@ load_dotenv()  # pull in secrets and settings
 cfg = { **dotenv_values(".config") }  # pull in config settings
 
 from modules.logger import Log  # init a logger (customize in logger.py)
+from fastapi import FastAPI
+
+# Create a FastAPI instance
+app = FastAPI()
+
+# Define basic endpoints
+@app.get("/")
+def read_root():
+    return {"Hello": "World"}
+
+@app.post("/items/")
+def create_item(item: dict):
+    return {"item": item}
+
+@app.put("/items/{item_id}")
+def update_item(item_id: int, item: dict):
+    return {"item_id": item_id, "item": item}
 
 ######################################################## SETUP #########################################################
 
