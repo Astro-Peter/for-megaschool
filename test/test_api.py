@@ -9,6 +9,8 @@ def test_read_root():
     assert response.json() == {"message": "Hello World"}
 
 def test_create_item():
+    item_data = {"name": "item1", "description": "A test item", "price": 10.5}
+    response = client.post("/items/", json=item_data)
     response = client.post("/items/", json={"name": "item1", "description": "A test item", "price": 10.5})
     assert response.status_code == 200
     assert response.json() == {"name": "item1", "description": "A test item", "price": 10.5}

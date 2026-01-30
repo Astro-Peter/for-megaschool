@@ -9,7 +9,7 @@ async def read_root():
 @app.post("/items/")
 async def create_item(item: dict):
     return item
-from models import Item
+from src.modules.models import Item
 
 @app.post("/items/")
 async def create_item(item: Item):
