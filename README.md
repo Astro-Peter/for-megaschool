@@ -102,3 +102,16 @@ In VSCode, use the Testing pane.
   - The first word (lowercase) should be a verb that describes the action it takes. (e.g. `parseData()`)
 - Define constants near the top of the file, below imports/setup, with `UPPER_CASE_LIKE_THIS`
 - *Import order, etc*
+
+## API
+
+### Run the API
+To run the FastAPI application, execute:
+```bash
+uvicorn src.main:app --reload
+```
+
+- Navigate to `http://127.0.0.1:8000/items/` for the POST endpoint.
+- Navigate to `http://127.0.0.1:8000/items/{item_id}` for the GET endpoint.
+
+- The API documentation is available at `http://127.0.0.1:8000/docs`.
