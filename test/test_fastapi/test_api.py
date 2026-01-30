@@ -8,3 +8,8 @@ def test_health_check():
     response = test_client.get("/health")
     assert response.status_code == 200
     assert response.json() == {"status": "healthy"}
+
+def test_read_root():
+    response = test_client.get("/")
+    assert response.status_code == 200
+    assert response.json() == {"Hello": "World"}

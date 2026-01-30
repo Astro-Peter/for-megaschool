@@ -12,3 +12,9 @@ def test_read_item():
     response = client.get("/items/1")
     assert response.status_code == 200
     assert response.json() == {"item_id": 1}
+
+def test_read_root():
+    client = TestClient(app)
+    response = client.get("/")
+    assert response.status_code == 200
+    assert response.json() == {"Hello": "World"}
