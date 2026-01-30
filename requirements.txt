@@ -1,2 +1,6 @@
 rich
 python-dotenv
+fastapi
+uvicorn
+
+sqlalchemy
