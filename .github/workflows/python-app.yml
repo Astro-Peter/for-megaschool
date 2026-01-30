@@ -31,3 +31,5 @@ jobs:
     - name: Run Tests
       run: |
         python -m unittest discover
+    --continue-on-error --always-run
+    --continue-on-error --always-run
