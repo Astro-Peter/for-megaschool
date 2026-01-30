@@ -14,6 +14,22 @@ cfg = { **dotenv_values(".config") }  # pull in config settings
 
 from modules.logger import Log  # init a logger (customize in logger.py)
 
+# Import FastAPI
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/")
+async def read_root():
+    return {"message": "Welcome to the API"}
+
+from modules.api import router
+
+app.include_router(router)
+
+from modules.middleware import ErrorHandlingMiddleware
+app.add_middleware(ErrorHandlingMiddleware)
+
 ######################################################## SETUP #########################################################
 
 # CONSTANTS
@@ -26,7 +42,7 @@ start_time = time.perf_counter()  # monitor script performance
 
 # setup any command-line arguments we need
 parser = argparse.ArgumentParser(description='<insert a brief tool/script description>')
-parser.add_argument('argname', help='<describe the arg here>')   # define arguments like this
+parser.add_argument('argname', help='<describe the arg here>')  # define arguments like this
 
 
 ###################################################### EXECUTION #######################################################
