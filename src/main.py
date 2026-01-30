@@ -7,6 +7,7 @@ import time
 import argparse
 from rich import print  # print to the console with rich.print() instead of print()
 from dotenv import load_dotenv, dotenv_values
+from fastapi import FastAPI
 
 # 🚨 OPSEC ALERT 🚨 -- keep credentials SECURE in .env files!
 load_dotenv()  # pull in secrets and settings
@@ -24,9 +25,16 @@ GRAVITY_IMPERIAL = 32.2  # ft/s^2
 log = Log()
 start_time = time.perf_counter()  # monitor script performance
 
+# FastAPI Application
+app = FastAPI()
+
+@app.get("/")
+async def read_root():
+    return {"Hello": "World"}
+
 # setup any command-line arguments we need
 parser = argparse.ArgumentParser(description='<insert a brief tool/script description>')
-parser.add_argument('argname', help='<describe the arg here>')   # define arguments like this
+parser.add_argument("argname", help="<describe the arg here>")   # define arguments like this
 
 
 ###################################################### EXECUTION #######################################################
@@ -60,3 +68,5 @@ def testFunction():
 if __name__ == '__main__':
     main()  
     log.info(f"Script took {time.perf_counter()-start_time:0.4f} seconds to execute.")  # log performance data
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)
