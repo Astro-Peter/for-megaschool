@@ -1,2 +1,10 @@
 rich
 python-dotenv
+fastapi
+uvicorn
+httpx
+fastapi
+uvicorn
+
+pytest
+pytest-asyncio
