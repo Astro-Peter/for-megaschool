@@ -1,2 +1,4 @@
 rich
-python-dotenv
+python-dotenvfastapi
+uvicornfastapi
+uvicorn
