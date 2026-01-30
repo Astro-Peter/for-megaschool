@@ -1,2 +1,10 @@
 rich
 python-dotenv
+fastapi
+uvicorn
+httpx>=0.23.0
+
+pytest
+
+pytest
+fastapi[test]

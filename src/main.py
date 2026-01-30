@@ -7,12 +7,14 @@ import time
 import argparse
 from rich import print  # print to the console with rich.print() instead of print()
 from dotenv import load_dotenv, dotenv_values
+from fastapi import FastAPI
 
 # 🚨 OPSEC ALERT 🚨 -- keep credentials SECURE in .env files!
 load_dotenv()  # pull in secrets and settings
 cfg = { **dotenv_values(".config") }  # pull in config settings
 
 from modules.logger import Log  # init a logger (customize in logger.py)
+from src.fastapi_app.api import app
 
 ######################################################## SETUP #########################################################
 
@@ -49,11 +51,7 @@ def main():
     # log.inspect() is also useful for debugging
     log.hbar(f'Inspect Object (example)')
     log.inspect(cfg)
-
-
-def testFunction():
-    return True
-
+    
 
 ##################################################### ENTRY POINT ######################################################
 
