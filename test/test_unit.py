@@ -4,7 +4,7 @@ srcdir = '../src'
 sys.path.insert(0, os.path.abspath(os.path.join(testdir, srcdir)))
 
 import unittest
-from src.main import testFunction
+# from src.main import testFunction
 
 
 class TestSum(unittest.TestCase):
