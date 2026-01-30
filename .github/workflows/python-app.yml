@@ -15,7 +15,7 @@ jobs:
 
     strategy:
         matrix:
-          python-version: [3.8, 3.9, "3.10"]
+          python-version: [3.8.18, 3.9]
           
     steps:
     - uses: actions/checkout@v2
@@ -30,4 +30,4 @@ jobs:
         pip install -r requirements.txt
     - name: Run Tests
       run: |
-        python -m unittest discover
+        pytest
