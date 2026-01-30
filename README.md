@@ -122,3 +122,24 @@ This is a simple FastAPI project that includes a basic API with GET and POST end
     ```bash
     uvicorn src.main_api:app --reload
     ```
+
+
+## API Endpoints
+
+### Get Root
+- **GET /**: Returns a Hello World message.
+
+### Create Item
+- **POST /items/**: Creates an item with the following fields:
+  - name: str
+  - description: str (optional)
+  - price: float
+  - tax: float (optional)
+
+## Running the API
+
+To run the API, use the following command:
+
+```bash
+uvicorn src.main_api:app --reload
+```
