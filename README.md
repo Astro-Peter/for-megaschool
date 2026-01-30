@@ -102,3 +102,33 @@ In VSCode, use the Testing pane.
   - The first word (lowercase) should be a verb that describes the action it takes. (e.g. `parseData()`)
 - Define constants near the top of the file, below imports/setup, with `UPPER_CASE_LIKE_THIS`
 - *Import order, etc*
+
+
+---
+
+## API Usage
+The project includes a FastAPI-powered REST API that offers the same functionality through HTTP endpoints.
+
+### Starting the API Server
+```bash
+# Running using main script
+python src/main.py api
+
+# Or run directly
+python src/start_api.py
+
+# With custom host/port
+python src/main.py api --host 0.0.0.0 --port 3000
+python src/start_api.py --host 0.0.0.0 --port 3000
+```
+
+### Available Endpoints
+- `GET /` - Root endpoint confirming API is running
+- `GET /api/v1/health` - Health check endpoint
+- `GET /api/v1/status` - Service status information
+- `GET /api/v1/hello/{name}` - Example endpoint with path parameters
+- `POST /api/v1/echo` - Example endpoint demonstrating POST requests
+
+### API Documentation
+Once the server is running, visit `http://localhost:8000/docs` for interactive API documentation (Swagger UI).
+You can also view the alternative interface at `http://localhost:8000/redoc`.
