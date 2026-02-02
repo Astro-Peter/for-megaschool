@@ -10,11 +10,16 @@ from dotenv import load_dotenv, dotenv_values
 
 # 🚨 OPSEC ALERT 🚨 -- keep credentials SECURE in .env files!
 load_dotenv()  # pull in secrets and settings
-cfg = { **dotenv_values(".config") }  # pull in config settings
+cfg = { **dotenv_values('.config') }  # pull in config settings
 
 from modules.logger import Log  # init a logger (customize in logger.py)
+from fastapi import FastAPI
+from modules.api import router  # Importing the router
 
 ######################################################## SETUP #########################################################
+
+app = FastAPI()
+app.include_router(router)  # Include the router
 
 # CONSTANTS
 GRAVITY_METRIC = 9.81  # m/s^2
@@ -26,16 +31,13 @@ start_time = time.perf_counter()  # monitor script performance
 
 # setup any command-line arguments we need
 parser = argparse.ArgumentParser(description='<insert a brief tool/script description>')
-parser.add_argument('argname', help='<describe the arg here>')   # define arguments like this
-
+parser.add_argument('argname', help='<describe the arg here>')
 
 ###################################################### EXECUTION #######################################################
 
 def main():
     """Add functionality for your script here."""
-    
     args = parser.parse_args()  # pull in command-line arguments
-
     # report the results
     log.hbar('Results')
     print('[bold magenta]Hello, world.')  # try to avoid print(), but it works with formatting too if required
@@ -53,7 +55,6 @@ def main():
 
 def testFunction():
     return True
-
 
 ##################################################### ENTRY POINT ######################################################
 
