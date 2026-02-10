@@ -18,15 +18,48 @@ Included are...
  - An `environment.yml` file for configuring and setting up environments for your tool
  - Initial test framework and Travis CI integration already setup and ready to rock and roll
  - VSCode `.vscode/` dir with configs for your project to utilize `unittest` and speed up 
+ - FastAPI integration with a health check endpoint for monitoring application status
 
 ### Usage
 > *This should be a quick/small instruction set for how to run the script, with more a detailed instructions below*
 1. Create a project from this template and alter as you need.
 2. Install dependancies (see _Setup the environment_ below)
-2. Run the project via its' entry-point, `main.py`, passing in any required arguments
+3. Run the project via its' entry-point, `main.py`, passing in any required arguments
+
+**CLI Mode (Default):**
 ```bash
 python main.py <args>
 ```
+
+**FastAPI Server Mode (with health check endpoint):**
+```bash
+python main.py --mode server
+```
+
+### Health Check Endpoint
+The FastAPI server includes a health check endpoint for monitoring application status:
+
+**Endpoint:** `GET /health`
+
+**Response Example (Healthy):**
+```json
+{
+  "status": "healthy",
+  "timestamp": "2024-01-15T10:30:45.123456",
+  "version": "1.0.0",
+  "checks": {
+    "python": true,
+    "system": true
+  }
+}
+```
+
+**Status Codes:**
+- `200 OK` - Application is healthy
+- `503 Service Unavailable` - Application is unhealthy (at least one component check failed)
+
+**API Documentation:**
+When running the server, visit `http://localhost:8000/docs` for interactive API documentation (Swagger UI)
 
 ## Details
 - **Project Owner:** *name*
@@ -61,11 +94,22 @@ pip install -r requirements.txt
 - Rename `.env.TEMPLATE` to `.env` and update it with any required secrets
 
 ### 3. Run
-5. Activate the VENV in your terminal and test the project
+
+**CLI Mode:**
 ```bash
 conda activate project_name
 python main.py <arguments>
 ```
+
+**FastAPI Server Mode:**
+```bash
+conda activate project_name
+python main.py --mode server [--host 127.0.0.1] [--port 8000]
+```
+
+Then visit:
+- API Documentation: http://localhost:8000/docs
+- Health Check: http://localhost:8000/health
 
 ## Development Environment
 > *List any requirements or additional setup as needed to develop/contribute to this project.*
@@ -81,7 +125,19 @@ In VSCode, use the Testing pane.
 
 ![Testing Pane](https://imgur.com/0pLqEAj.png)  
 
-> From the command line: `python -m unittest tests`
+> From the command line: `python -m unittest discover -s test -p "test_*.py"`
+
+**Run specific test modules:**
+```bash
+# Run health check tests
+python -m unittest test.test_health
+
+# Run unit tests
+python -m unittest test.test_unit
+
+# Run integration tests
+python -m unittest test.test_integration
+```
 
 ### Contributing
 > *Detail how to contribute to this project*
