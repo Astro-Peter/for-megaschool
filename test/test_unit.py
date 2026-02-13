@@ -4,16 +4,17 @@ srcdir = '../src'
 sys.path.insert(0, os.path.abspath(os.path.join(testdir, srcdir)))
 
 import unittest
-from src.main import testFunction
+from src.main import app
+from fastapi.testclient import TestClient
 
+class TestAPI(unittest.TestCase):
+    def setUp(self):
+        self.client = TestClient(app)
 
-class TestSum(unittest.TestCase):
-    def test_testFunction(self):
-        """
-        Test that it can sum a list of integers
-        """
-        self.assertTrue(testFunction())
-
+    def test_root(self):
+        response = self.client.get("/")
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.json(), {"message": "Hello, World!"})
 
 if __name__ == '__main__':
     unittest.main()
