@@ -1,3 +1,13 @@
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/health")
+async def health_check():
+    return {"status": "healthy"}
+
+# Setup and other existing functionalities follow...
+
 # setup clean tracebacks for debugging
 from rich import traceback
 traceback.install()
@@ -60,3 +70,6 @@ def testFunction():
 if __name__ == '__main__':
     main()  
     log.info(f"Script took {time.perf_counter()-start_time:0.4f} seconds to execute.")  # log performance data
+from src.routers.items import router as items_router
+
+app.include_router(items_router)
