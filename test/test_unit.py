@@ -17,3 +17,17 @@ class TestSum(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+from fastapi.testclient import TestClient
+from src.main import app
+
+test_client = TestClient(app)
+
+def test_read_root():
+    response = test_client.get("/")
+    assert response.status_code == 200
+    assert response.json() == {"Hello": "World"}
+
+def test_create_item():
+    response = test_client.post("/items/", json={"name": "test item"})
+    assert response.status_code == 200
+    assert response.json() == {"name": "test item"}
