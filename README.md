@@ -102,3 +102,13 @@ In VSCode, use the Testing pane.
   - The first word (lowercase) should be a verb that describes the action it takes. (e.g. `parseData()`)
 - Define constants near the top of the file, below imports/setup, with `UPPER_CASE_LIKE_THIS`
 - *Import order, etc*
+
+## FastAPI Application
+
+This project includes a FastAPI application that provides the following endpoints:
+
+- **GET /items**: Retrieve a list of items.
+- **POST /items**: Create a new item.
+- **GET /items/{item_id}**: Retrieve a specific item by ID.
+- **PUT /items/{item_id}**: Update a specific item by ID.
+- **DELETE /items/{item_id}**: Delete a specific item by ID.
